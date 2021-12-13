@@ -2,7 +2,7 @@
 
 <details>
 <summary><b>1991. Find the Middle Index in Array</b>
-<a href="problems/python/1991-find-the-middle-index-in-array/main.py">[python]</a>
+<a href="python/1991-find-the-middle-index-in-array/main.py">[python]</a>
 </summary>
 
 Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
