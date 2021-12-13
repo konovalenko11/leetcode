@@ -15,25 +15,19 @@ class Solution:
   def find_middle_index(self, nums: List[int]) -> int:
     sum_before = 0
     sum_after = 0
-    num_elements = len(nums)
-    index = 0
-    reverse_index = num_elements - 1
 
-    for i in range(num_elements):
+    for num in nums:
+      sum_after += num
 
-      if sum_before >= sum_after:
-        sum_after += nums[reverse_index]
-        reverse_index -= 1
-      else:
-        sum_before += nums[index]
-        index += 1
+    for i, num in enumerate(nums):
+      sum_after -= num
 
-      print(f'[{i}]: Forward[{index}]: sum[{sum_before}]; '
-        f'Reverse[{reverse_index}]: sum[{sum_after}]')
+      if sum_before == sum_after:
+        return i
 
-      if (index == reverse_index):
-        return index if (sum_before == sum_after) else -1
+      sum_before += num
 
+    return -1
 
 f = Solution()
 
@@ -46,5 +40,17 @@ print(f'Input array: {nums}')
 print(f'Answer: [{f.find_middle_index(nums)}]')
 
 nums = [20, -10, 5, 5]
+print(f'Input array: {nums}')
+print(f'Answer: [{f.find_middle_index(nums)}]')
+
+nums = [1,7,3,6,5,6]
+print(f'Input array: {nums}')
+print(f'Answer: [{f.find_middle_index(nums)}]')
+
+nums = [1,2,3]
+print(f'Input array: {nums}')
+print(f'Answer: [{f.find_middle_index(nums)}]')
+
+nums = [2,1,-1]
 print(f'Input array: {nums}')
 print(f'Answer: [{f.find_middle_index(nums)}]')
