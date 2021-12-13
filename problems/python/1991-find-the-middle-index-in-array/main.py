@@ -14,10 +14,7 @@ from typing import List
 class Solution:
   def find_middle_index(self, nums: List[int]) -> int:
     sum_before = 0
-    sum_after = 0
-
-    for num in nums:
-      sum_after += num
+    sum_after = sum(nums)
 
     for i, num in enumerate(nums):
       sum_after -= num
