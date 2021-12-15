@@ -1,6 +1,71 @@
 # Problem Descriptions
 
 <!-----------------------------------------------------------------------------
+-- 66. Plus One
+------------------------------------------------------------------------------>
+<details>
+<summary><b>66. Plus One</b>
+<a href="python/724-find-pivot-index/main.py">[python]</a>
+</summary>
+<br />
+<div><p>You are given a <strong>large integer</strong> represented as an integer array <code>digits</code>, where each <code>digits[i]</code> is the <code>i<sup>th</sup></code> digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading <code>0</code>'s.</p>
+
+<p>Increment the large integer by one and return <em>the resulting array of digits</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre><strong>Input:</strong> digits = [1,2,3]
+<strong>Output:</strong> [1,2,4]
+<strong>Explanation:</strong> The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><strong>Input:</strong> digits = [4,3,2,1]
+<strong>Output:</strong> [4,3,2,2]
+<strong>Explanation:</strong> The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre><strong>Input:</strong> digits = [0]
+<strong>Output:</strong> [1]
+<strong>Explanation:</strong> The array represents the integer 0.
+Incrementing by one gives 0 + 1 = 1.
+Thus, the result should be [1].
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre><strong>Input:</strong> digits = [9]
+<strong>Output:</strong> [1,0]
+<strong>Explanation:</strong> The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= digits.length &lt;= 100</code></li>
+	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
+	<li><code>digits</code> does not contain any leading <code>0</code>'s.</li>
+</ul>
+
+### Solution
+1. Loop throught the digits in reverse order
+2. If digits[idx] == 9 then digits[idx] = 0
+3. Else digits[idx] += 1 and return digits
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 724. Find Pivot Index 
 ------------------------------------------------------------------------------>
 <details>
@@ -54,6 +119,70 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as&nbsp;1991:&nbsp;<a href="https://leetcode.com/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
+
+### Solution
+1. Find sum of all elements
+2. Loop through the list of elements and:
+    - compare the sum of elements to the left of current element with (total sum - current element - left sum)
+    - if equal -> return index
+    - otherwise, increment left sum += element  
+
+</details>  
+
+<!-----------------------------------------------------------------------------
+-- 747. Largest Number At Least Twice of Others
+------------------------------------------------------------------------------>
+<details>
+<summary><b>747. Largest Number At Least Twice of Others</b>
+<a href="python/747-largest-number-at-least-twice-of-others/main.py">[python]</a>
+</summary>
+<br />
+<div><p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
+
+<p>Determine whether the largest element in the array is <strong>at least twice</strong> as much as every other number in the array. If it is, return <em>the <strong>index</strong> of the largest element, or return </em><code>-1</code><em> otherwise</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre><strong>Input:</strong> nums = [3,6,1,0]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> 6 is the largest integer.
+For every other number in the array x, 6 is at least twice as big as x.
+The index of value 6 is 1, so we return 1.
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><strong>Input:</strong> nums = [1,2,3,4]
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> 4 is less than twice the value of 3, so we return -1.</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre><strong>Input:</strong> nums = [1]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> 1 is trivially at least twice the value as any other number because there are no other numbers.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
+	<li>The largest element in <code>nums</code> is unique.</li>
+</ul>
+</div>
+
+### Solution
+1. Loop through the elements
+2. If length == 0, return -1
+3. If length == 1, return 0
+4. If index == 0, setting max
+5. If element > max: setting second_max with max value and resetting max
+6. If index == 1 or element > second_max: setting second max
+7. If second_max == 0 or max / second_max >= 2 -> return max_index
+8. return -1
 
 </details>  
 
@@ -120,6 +249,13 @@ The sum of the numbers after index 0 is: 0
 
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as&nbsp;724:&nbsp;<a href="https://leetcode.com/problems/find-pivot-index/" target="_blank">https://leetcode.com/problems/find-pivot-index/</a></p>
+
+### Solution
+1. Find sum of all elements
+2. Loop through the list of elements and:
+    - compare the sum of elements to the left of current element with (total sum - current element - left sum)
+    - if equal -> return index
+    - otherwise, increment left sum += element  
 
 </details>  
 
