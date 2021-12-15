@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>66. Plus One</b>
-<a href="python/724-find-pivot-index/main.py">[python]</a>
+<a href="python/66-plus-one/main.py">[python]</a>
 </summary>
 <br />
 <div><p>You are given a <strong>large integer</strong> represented as an integer array <code>digits</code>, where each <code>digits[i]</code> is the <code>i<sup>th</sup></code> digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading <code>0</code>'s.</p>
