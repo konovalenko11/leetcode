@@ -60,8 +60,11 @@ Thus, the result should be [1,0].
 
 ### Solution
 1. Loop throught the digits in reverse order
-2. If digits[idx] == 9 then digits[idx] = 0
-3. Else digits[idx] += 1 and return digits
+2. If `digits[idx] == 9` then `digits[idx] = 0`
+3. Else `digits[idx] += 1` and `return digits`
+4. If you went throug sll elements, it means that the the most significant 
+   element was 9, lso we need to add "1" at the beginning of an array:
+   `[1] + digits`
 
 </details>
 
