@@ -69,6 +69,91 @@ Thus, the result should be [1,0].
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 498. Diagonal Traverse
+------------------------------------------------------------------------------>
+<details>
+<summary><b>498. Diagonal Traverse</b>
+<a href="python/66-plus-one/main.py">[python]</a>
+</summary>
+<br/>
+
+Given an `m x n` matrix `mat`, return _an array of all the elements of the array in a diagonal order_.
+
+**Example 1:**
+
+![](https://assets.leetcode.com/uploads/2021/04/10/diag1-grid.jpg)
+
+<pre>**Input:** mat = [[1,2,3],[4,5,6],[7,8,9]]
+**Output:** [1,2,4,7,5,3,6,8,9]
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** mat = [[1,2],[3,4]]
+**Output:** [1,2,3,4]
+</pre>
+
+**Constraints:**
+
+*   `m == mat.length`
+*   `n == mat[i].length`
+*   `1 <= m, n <= 10<sup>4</sup>`
+*   `1 <= m * n <= 10<sup>4</sup>`
+*   `-10<sup>5</sup> <= mat[i][j] <= 10<sup>5</sup>`
+
+### Solution
+1. If input array is empty, return as-is;
+2. If input array has less than 2 columns or 2 rows, then just returning values as-is (combining them into one array).
+3. Defining possible moves (vectors) from point ot point. There are only 4 of 
+   them:
+    - main directions: up-right (`[-1, 1]`), down-left (`[1, -1]`);
+    - alternative 1: right (`[0, 1]`);
+    - alternative 2: down (`[1, 0]`).
+4. First (`0, 0`), second (`0, 1`) and last (`nrows-1`, `ncols-1`) elements are 
+   known, so we can include first and second value into result array right away.
+	 Last value will be included at the end.
+5. Due to that we're starting from the 2nd element, our initial direction will 
+   be down-left. Alternative vectors down and right (in exact order).
+	 Adding these possble moves to the array that will be modified later when we 
+	 change direction. `vectors = [[1, -1], [1, 0], [0, 1]]`
+6. Iterating through the elements. Total number of iterations is `#elements - 3` 
+   as we do not need to identify first, second and last elements. Our initial 
+	 point will be the second element (`0, 1`).
+7. For each vector from #5 we need to check if it will be a valid move. If yes, 
+   then we apply new x and y, breaking the vector loop.
+8. If not, then we need to note that direction should change, and continuing to 
+   the next vector.
+9. Eventually, one of three vectors should work, so appending value to result 
+   array: `result_list.append(mat[x][y])`.
+10. If `change_direction` flag is `True`, then we need to update the direction in
+   vectors array:
+
+	 ```python
+		vectors[0][0] *= -1
+		vectors[0][1] *= -1
+	 ``` 
+	 
+	 Example: if we move down-left, then starting from the next 
+	 iteration we need to mobe up-right. 
+	 
+	 Also, we need to swap order of alternative moves. 
+	 Example, if we go down-left and come to the matrix edge, then we need to 
+	 check alternative options counter-clockwise: down and then right. If we go up-right, then we need to check alternative options clockwise: right and then down.
+
+	 ```python
+	 	vectors[1], vectors[2] = vectors[2], vectors[1]
+	 ```
+
+	 Final thing is to update the direction flag itself to `False`:
+	 ```python
+	 	change_direction = False
+	 ```
+11. After iterating of all elements, adding the final one as described in #4 and
+    returning result: ```result_list.append(mat[-1][-1])```
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 724. Find Pivot Index 
 ------------------------------------------------------------------------------>
 <details>

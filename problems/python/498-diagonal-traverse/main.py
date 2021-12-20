@@ -54,8 +54,8 @@ class Solution:
         ynew = y + vector[1]
 
         # Defining coordinates. If new coordinate is within the matrix, then 
-        # assigning it. Otherwise (if we came to the box edge), we need to change 
-        # the direction and move vertically: x = x + 1, ynew = y.
+        # assigning it. Otherwise (if we came to the box edge), taking a note 
+        # that direction should change.
         if (xnew >= 0 and xnew < nrows) and (ynew >= 0 and ynew < ncols):
           x = xnew
           y = ynew
