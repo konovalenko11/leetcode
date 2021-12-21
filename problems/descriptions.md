@@ -129,27 +129,33 @@ Given an `m x n` matrix `mat`, return _an array of all the elements of the array
    vectors array:
 
 	 ```python
-		vectors[0][0] *= -1
-		vectors[0][1] *= -1
+	 vectors[0][0] *= -1
+	 vectors[0][1] *= -1
 	 ``` 
-	 
+
 	 Example: if we move down-left, then starting from the next 
 	 iteration we need to mobe up-right. 
-	 
+
 	 Also, we need to swap order of alternative moves. 
 	 Example, if we go down-left and come to the matrix edge, then we need to 
 	 check alternative options counter-clockwise: down and then right. If we go up-right, then we need to check alternative options clockwise: right and then down.
 
 	 ```python
-	 	vectors[1], vectors[2] = vectors[2], vectors[1]
+	 vectors[1], vectors[2] = vectors[2], vectors[1]
 	 ```
 
-	 Final thing is to update the direction flag itself to `False`:
-	 ```python
-	 	change_direction = False
-	 ```
+	  Final thing is to update the direction flag itself to `False`:
+
+	  ```python
+	  change_direction = False
+	  ```
 11. After iterating of all elements, adding the final one as described in #4 and
-    returning result: ```result_list.append(mat[-1][-1])```
+    returning result:
+
+		```python
+		result_list.append(mat[-1][-1])
+		```
+[Alternative solution](https://leetcode.com/problems/diagonal-traverse/discuss/581868/Easy-Python-NO-DIRECTION-CHECKING)
 
 </details>
 
