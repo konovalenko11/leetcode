@@ -1,6 +1,17 @@
 # Problem Descriptions
 
 <!-----------------------------------------------------------------------------
+-- 54. Spiral Matrix
+------------------------------------------------------------------------------>
+<details>
+<summary><b>54. Spiral Matrix</b>
+<a href="python/54-spiral-matrix/main.py">[python]</a>
+</summary>
+<br />
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 66. Plus One
 ------------------------------------------------------------------------------>
 <details>
@@ -152,9 +163,10 @@ Given an `m x n` matrix `mat`, return _an array of all the elements of the array
 11. After iterating of all elements, adding the final one as described in #4 and
     returning result:
 
-		```python
-		result_list.append(mat[-1][-1])
-		```
+    ```python
+    result_list.append(mat[-1][-1])
+    ```
+
 [Alternative solution](https://leetcode.com/problems/diagonal-traverse/discuss/581868/Easy-Python-NO-DIRECTION-CHECKING)
 
 </details>
