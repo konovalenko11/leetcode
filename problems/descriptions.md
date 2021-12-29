@@ -19,55 +19,52 @@
 <a href="python/66-plus-one/main.py">[python]</a>
 </summary>
 <br />
-<div><p>You are given a <strong>large integer</strong> represented as an integer array <code>digits</code>, where each <code>digits[i]</code> is the <code>i<sup>th</sup></code> digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading <code>0</code>'s.</p>
 
-<p>Increment the large integer by one and return <em>the resulting array of digits</em>.</p>
+You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i<sup>th</sup>` digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+Increment the large integer by one and return _the resulting array of digits_.
 
-<pre><strong>Input:</strong> digits = [1,2,3]
-<strong>Output:</strong> [1,2,4]
-<strong>Explanation:</strong> The array represents the integer 123.
+**Example 1:**
+
+<pre>**Input:** digits = [1,2,3]
+**Output:** [1,2,4]
+**Explanation:** The array represents the integer 123.
 Incrementing by one gives 123 + 1 = 124.
 Thus, the result should be [1,2,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+**Example 2:**
 
-<pre><strong>Input:</strong> digits = [4,3,2,1]
-<strong>Output:</strong> [4,3,2,2]
-<strong>Explanation:</strong> The array represents the integer 4321.
+<pre>**Input:** digits = [4,3,2,1]
+**Output:** [4,3,2,2]
+**Explanation:** The array represents the integer 4321.
 Incrementing by one gives 4321 + 1 = 4322.
 Thus, the result should be [4,3,2,2].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+**Example 3:**
 
-<pre><strong>Input:</strong> digits = [0]
-<strong>Output:</strong> [1]
-<strong>Explanation:</strong> The array represents the integer 0.
+<pre>**Input:** digits = [0]
+**Output:** [1]
+**Explanation:** The array represents the integer 0.
 Incrementing by one gives 0 + 1 = 1.
 Thus, the result should be [1].
 </pre>
 
-<p><strong>Example 4:</strong></p>
+**Example 4:**
 
-<pre><strong>Input:</strong> digits = [9]
-<strong>Output:</strong> [1,0]
-<strong>Explanation:</strong> The array represents the integer 9.
+<pre>**Input:** digits = [9]
+**Output:** [1,0]
+**Explanation:** The array represents the integer 9.
 Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+**Constraints:**
 
-<ul>
-	<li><code>1 &lt;= digits.length &lt;= 100</code></li>
-	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
-	<li><code>digits</code> does not contain any leading <code>0</code>'s.</li>
-</ul>
+*   `1 <= digits.length <= 100`
+*   `0 <= digits[i] <= 9`
+*   `digits` does not contain any leading `0`'s.
 
 ### Solution
 1. Loop throught the digits in reverse order
@@ -179,52 +176,48 @@ Given an `m x n` matrix `mat`, return _an array of all the elements of the array
 <a href="python/724-find-pivot-index/main.py">[python]</a>
 </summary>
 <br />
-<p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>
 
-<p>The <strong>pivot index</strong> is the index where the sum of all the numbers <strong>strictly</strong> to the left of the index is equal to the sum of all the numbers <strong>strictly</strong> to the index's right.</p>
+Given an array of integers `nums`, calculate the **pivot index** of this array.
 
-<p>If the index is on the left edge of the array, then the left sum is <code>0</code> because there are no elements to the left. This also applies to the right edge of the array.</p>
+The **pivot index** is the index where the sum of all the numbers **strictly** to the left of the index is equal to the sum of all the numbers **strictly** to the index's right.
 
-<p>Return <em>the <strong>leftmost pivot index</strong></em>. If no such index exists, return -1.</p>
+If the index is on the left edge of the array, then the left sum is `0` because there are no elements to the left. This also applies to the right edge of the array.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+Return _the **leftmost pivot index**_. If no such index exists, return -1.
 
-<pre><strong>Input:</strong> nums = [1,7,3,6,5,6]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong>
+**Example 1:**
+
+<pre>**Input:** nums = [1,7,3,6,5,6]
+**Output:** 3
+**Explanation:**
 The pivot index is 3.
 Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
 Right sum = nums[4] + nums[5] = 5 + 6 = 11
 </pre>
 
-<p><strong>Example 2:</strong></p>
+**Example 2:**
 
-<pre><strong>Input:</strong> nums = [1,2,3]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
+<pre>**Input:** nums = [1,2,3]
+**Output:** -1
+**Explanation:**
 There is no index that satisfies the conditions in the problem statement.</pre>
 
-<p><strong>Example 3:</strong></p>
+**Example 3:**
 
-<pre><strong>Input:</strong> nums = [2,1,-1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<pre>**Input:** nums = [2,1,-1]
+**Output:** 0
+**Explanation:**
 The pivot index is 0.
 Left sum = 0 (no elements to the left of index 0)
 Right sum = nums[1] + nums[2] = 1 + -1 = 0
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+**Constraints:**
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
-</ul>
+*   `1 <= nums.length <= 10<sup>4</sup>`
+*   `-1000 <= nums[i] <= 1000`
 
-<p>&nbsp;</p>
-<p><strong>Note:</strong> This question is the same as&nbsp;1991:&nbsp;<a href="https://leetcode.com/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
+**Note:** This question is the same as 1991: [https://leetcode.com/problems/find-the-middle-index-in-array/](https://leetcode.com/problems/find-the-middle-index-in-array/)
 
 ### Solution
 1. Find sum of all elements
@@ -243,42 +236,38 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 <a href="python/747-largest-number-at-least-twice-of-others/main.py">[python]</a>
 </summary>
 <br />
-<div><p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
 
-<p>Determine whether the largest element in the array is <strong>at least twice</strong> as much as every other number in the array. If it is, return <em>the <strong>index</strong> of the largest element, or return </em><code>-1</code><em> otherwise</em>.</p>
+You are given an integer array `nums` where the largest integer is **unique**.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+Determine whether the largest element in the array is **at least twice** as much as every other number in the array. If it is, return _the **index** of the largest element, or return_ `-1` _otherwise_.
 
-<pre><strong>Input:</strong> nums = [3,6,1,0]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> 6 is the largest integer.
+**Example 1:**
+
+<pre>**Input:** nums = [3,6,1,0]
+**Output:** 1
+**Explanation:** 6 is the largest integer.
 For every other number in the array x, 6 is at least twice as big as x.
 The index of value 6 is 1, so we return 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+**Example 2:**
 
-<pre><strong>Input:</strong> nums = [1,2,3,4]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong> 4 is less than twice the value of 3, so we return -1.</pre>
+<pre>**Input:** nums = [1,2,3,4]
+**Output:** -1
+**Explanation:** 4 is less than twice the value of 3, so we return -1.</pre>
 
-<p><strong>Example 3:</strong></p>
+**Example 3:**
 
-<pre><strong>Input:</strong> nums = [1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> 1 is trivially at least twice the value as any other number because there are no other numbers.
+<pre>**Input:** nums = [1]
+**Output:** 0
+**Explanation:** 1 is trivially at least twice the value as any other number because there are no other numbers.
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+**Constraints:**
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
-	<li>The largest element in <code>nums</code> is unique.</li>
-</ul>
-</div>
+*   `1 <= nums.length <= 50`
+*   `0 <= nums[i] <= 100`
+*   The largest element in `nums` is unique.
 
 ### Solution
 1. Loop through the elements
@@ -301,60 +290,56 @@ The index of value 6 is 1, so we return 1.
 <a href="python/1991-find-the-middle-index-in-array/main.py">[python]</a>
 </summary>
 <br />
-<p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find the <strong>leftmost</strong> <code>middleIndex</code> (i.e., the smallest amongst all the possible ones).</p>
 
-<p>A <code>middleIndex</code> is an index where <code>nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1]</code>.</p>
+Given a **0-indexed** integer array `nums`, find the **leftmost** `middleIndex` (i.e., the smallest amongst all the possible ones).
 
-<p>If <code>middleIndex == 0</code>, the left side sum is considered to be <code>0</code>. Similarly, if <code>middleIndex == nums.length - 1</code>, the right side sum is considered to be <code>0</code>.</p>
+A `middleIndex` is an index where `nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1]`.
 
-<p>Return <em>the <strong>leftmost</strong> </em><code>middleIndex</code><em> that satisfies the condition, or </em><code>-1</code><em> if there is no such index</em>.</p>
+If `middleIndex == 0`, the left side sum is considered to be `0`. Similarly, if `middleIndex == nums.length - 1`, the right side sum is considered to be `0`.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+Return _the **leftmost**_ `middleIndex` _that satisfies the condition, or_ `-1` _if there is no such index_.
 
-<pre><strong>Input:</strong> nums = [2,3,-1,<u>8</u>,4]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong>
+**Example 1:**
+
+<pre>**Input:** nums = [2,3,-1,<u>8</u>,4]
+**Output:** 3
+**Explanation:**
 The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
 The sum of the numbers after index 3 is: 4 = 4
 </pre>
 
-<p><strong>Example 2:</strong></p>
+**Example 2:**
 
-<pre><strong>Input:</strong> nums = [1,-1,<u>4</u>]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<pre>**Input:** nums = [1,-1,<u>4</u>]
+**Output:** 2
+**Explanation:**
 The sum of the numbers before index 2 is: 1 + -1 = 0
 The sum of the numbers after index 2 is: 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
+**Example 3:**
 
-<pre><strong>Input:</strong> nums = [2,5]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
+<pre>**Input:** nums = [2,5]
+**Output:** -1
+**Explanation:**
 There is no valid middleIndex.
 </pre>
 
-<p><strong>Example 4:</strong></p>
+**Example 4:**
 
-<pre><strong>Input:</strong> nums = [<u>1</u>]
-<strong>Output:</strong> 0
-<strong>Explantion:</strong>
+<pre>**Input:** nums = [<u>1</u>]
+**Output:** 0
+**Explantion:**
 The sum of the numbers before index 0 is: 0
 The sum of the numbers after index 0 is: 0
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+**Constraints:**
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
-	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
-</ul>
+*   `1 <= nums.length <= 100`
+*   `-1000 <= nums[i] <= 1000`
 
-<p>&nbsp;</p>
-<p><strong>Note:</strong> This question is the same as&nbsp;724:&nbsp;<a href="https://leetcode.com/problems/find-pivot-index/" target="_blank">https://leetcode.com/problems/find-pivot-index/</a></p>
+**Note:** This question is the same as 724: [https://leetcode.com/problems/find-pivot-index/](https://leetcode.com/problems/find-pivot-index/)
 
 ### Solution
 1. Find sum of all elements
