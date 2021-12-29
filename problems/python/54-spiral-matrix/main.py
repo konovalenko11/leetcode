@@ -1,23 +1,23 @@
 from typing import List
 
 class Solution:
-  def spiral_matrix(self, mat: List[List[int]]) -> List[int]:
+  def spiral_matrix(self, matrix: List[List[int]]) -> List[int]:
     # Output list.
     result_list = []
 
     # If list is empty.
-    if not mat:
+    if not matrix:
       return result_list
 
     # Rows, columns.
-    nrows = len(mat)
-    ncols = len(mat[0])
+    nrows = len(matrix)
+    ncols = len(matrix[0])
     nelements = nrows * ncols
 
     # if array is flat or empty, then there is not need to traverse the matrix 
     # by diagonal.
     if nrows < 2 or ncols < 2:
-      for row in mat:
+      for row in matrix:
         for element in row:
           result_list.append(element)
       return result_list
@@ -30,26 +30,27 @@ class Solution:
     xd = 0
     yd = 1
 
-    # Lap counter.
+    # Adding initial point.
+    result_list.append(matrix[x][y])
+
+    # Counters.
+    sides_passed = 0
     side_moves = 1
     side_moves_limit = ncols
-    sides_passed = 0
-    laps = 0
 
-    # Adding initial point.
-    result_list.append(mat[x][y])
-
-    for _ in range(nelements-1):
+    for _ in range(nelements - 1):
 
       if side_moves == side_moves_limit:
-        side_moves = 1
         sides_passed += 1
-        laps = (sides_passed + 1) // 4
+        side_moves = 0
+        side_moves_shrinkage = (sides_passed + 1) // 2
 
+        # If we passed even number of sides, then we are on rows. So the number 
+        # of steps we need to perform is num_cols - shrinkage.
         if sides_passed % 2 == 0:
-          side_moves_limit = ncols - laps
+          side_moves_limit = ncols - side_moves_shrinkage
         else:
-          side_moves_limit = nrows - laps
+          side_moves_limit = nrows - side_moves_shrinkage
 
         # Rotating direction vector clockwise (x, y) -> (y, -x).
         xd, yd = yd, -xd
@@ -57,7 +58,7 @@ class Solution:
       x += xd
       y += yd
 
-      result_list.append(mat[x][y])
+      result_list.append(matrix[x][y])
 
       side_moves += 1
 
