@@ -6,9 +6,53 @@
 <details>
 <summary><b>54. Spiral Matrix</b>
 <a href="python/54-spiral-matrix/main.py">[python]</a>
+<a href="python/54-spiral-matrix/main_v2_visited.py">[python 2]</a>
 </summary>
 <br />
 
+Given an `m x n` `matrix`, return _all elements of the_ `matrix` _in spiral order_.
+
+**Example 1:**
+
+![](https://assets.leetcode.com/uploads/2020/11/13/spiral1.jpg)
+
+<pre>**Input:** matrix = [[1,2,3],[4,5,6],[7,8,9]]
+**Output:** [1,2,3,6,9,8,7,4,5]
+</pre>
+
+**Example 2:**
+
+![](https://assets.leetcode.com/uploads/2020/11/13/spiral.jpg)
+
+<pre>**Input:** matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+**Output:** [1,2,3,4,8,12,11,10,9,5,6,7]
+</pre>
+
+**Constraints:**
+
+*   `m == matrix.length`
+*   `n == matrix[i].length`
+*   `1 <= m, n <= 10`
+*   `-100 <= matrix[i][j] <= 100`
+
+### Solution 1
+1. Starting from the (0,0) and going further until we reach the limit of steps 
+   for row/column.
+2. If we reached the limit of steps, it means that we went through all elementsd on the side and we need to turn vector clockwise.
+   ```python
+   x, y = y, -x
+   ```
+3. On each second side (side num 2, 4, ...) we decrease the side steps counter.
+4. Proceeding until we looped through all elements.
+
+### Solution 2 (recording visited)
+1. Starting from the (0,0) and going further until we reach the edge of row/column or new element was already visited.
+2. If so, it means that we went through all elements on the side and we need to turn vector clockwise.
+   ```python
+   x, y = y, -x
+   ```
+3. Otherwise: `x, y = xnew, ynew`
+4. Proceeding until we looped through all elements.
 </details>
 
 <!-----------------------------------------------------------------------------
