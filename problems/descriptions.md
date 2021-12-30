@@ -121,6 +121,48 @@ Thus, the result should be [1,0].
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 118. Pascal's Triangle
+------------------------------------------------------------------------------>
+<details>
+<summary><b>118. Pascal's Triangle</b>
+<a href="python/118-pascals-triangle/main.py">[python]</a>
+</summary>
+<br />
+
+Given an integer `numRows`, return the first numRows of **Pascal's triangle**.
+
+In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
+
+![](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
+
+**Example 1:**
+
+<pre>**Input:** numRows = 5
+**Output:** [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** numRows = 1
+**Output:** [[1]]
+</pre>
+
+**Constraints:**
+
+*   `1 <= numRows <= 30`
+
+### Solution
+1. Create empty result list
+2. Loop each row and element
+3. First and last elements are `1`
+4. Middle elements are sum of elements on previous row:
+   ```python
+   list[row][idx] = list[row - 1][idx - 1] + list[row - 1][idx]
+   ```
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 498. Diagonal Traverse
 ------------------------------------------------------------------------------>
 <details>
