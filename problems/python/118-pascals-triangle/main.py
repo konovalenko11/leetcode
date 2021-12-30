@@ -1,4 +1,5 @@
 from typing import List
+import dis
 
 class Solution:
   def generate(self, numRows: int) -> List[List[int]]:
@@ -29,3 +30,5 @@ print(f'Answer: {f.generate(numRows)}')
 numRows = 10
 print(f'numRows: {numRows}')
 print(f'Answer: {f.generate(numRows)}')
+
+# dis.dis(f.generate)
