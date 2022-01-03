@@ -121,6 +121,63 @@ Thus, the result should be [1,0].
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 67. Add Binary
+------------------------------------------------------------------------------>
+<details>
+<summary>
+   <b>67. Add Binary</b>
+   <a href="python/67-add-binary/main.py">[python]</a>
+</summary>
+<br />
+
+Given two binary strings `a` and `b`, return _their sum as a binary string_.
+
+**Example 1:**
+
+<pre>**Input:** a = "11", b = "1"
+**Output:** "100"
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** a = "1010", b = "1011"
+**Output:** "10101"
+</pre>
+
+**Constraints:**
+
+*   `1 <= a.length, b.length <= 10<sup>4</sup>`
+*   `a` and `b` consist only of `'0'` or `'1'` characters.
+*   Each string does not contain leading zeros except for the zero itself.
+
+### Solution 1 (array manipulation)
+1. Add missing `0s` if the lengths of strings are different.
+2. Loop through each element (from any of strings as they have the same length)
+3. Find int sum of: `a[i] + b[i] + carry`. Where `carry` is carry bit from previous iteration.
+4. Final bit value would be `sum % 2`, carry value would be `sum // 2`
+5. Add final bit to result array
+6. After loop is finished and `carry == 1`, add one more bit to result array.
+7. Reverse array and print all elements.
+
+### Solution 2 (int sum)
+1. Convert `a` and `b` to int from binary string.
+2. Find int sum: `a + b`
+3. Print result as binary: 
+   ```python
+   return f'{result:b}'
+   ```
+
+### Solution 3 (bit manipulation)
+1. Convert `a` and `b` to int from binary string.
+2. Iterate while `carry > 0` 
+3. Each time perform [binary addition](https://www.geeksforgeeks.org/add-two-numbers-without-using-arithmetic-operators/).
+4. Print result as binary: 
+   ```python
+   return f'{result:b}'
+   ```
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 118. Pascal's Triangle
 ------------------------------------------------------------------------------>
 <details>
