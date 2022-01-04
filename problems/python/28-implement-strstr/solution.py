@@ -13,8 +13,6 @@ class Solution:
     n_search_start = 0
 
     while h_idx < h_len:
-      # DEV
-      # print('-----') 
 
       # If haven't found match till that time, there is no sense to proceed.
       if h_idx + n_len > h_len:
@@ -32,13 +30,6 @@ class Solution:
         # Checks if we had the same char all the time.
         if same_chars and n_idx > 0:
           same_chars = (h_char_shifted == haystack[h_idx_shifted - 1])
-
-        # DEV
-        # print(
-        #   f'[{h_idx}][{haystack[h_idx]}]: '
-        #   f'[{h_idx_shifted}][{h_char_shifted}][{needle[n_idx]}]'
-        #   f'[{same_chars}][{n_search_start}]'
-        # )
 
         if h_char_shifted != needle[n_idx]:
           n_search_start = n_idx if same_chars else 0
