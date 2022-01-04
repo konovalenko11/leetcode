@@ -1,6 +1,74 @@
 # Problem Descriptions
 
 <!-----------------------------------------------------------------------------
+-- 28. Implement strStr()
+------------------------------------------------------------------------------>
+<details>
+<summary><b>28. Implement strStr()</b>
+   <a href="python/28-implement-strstr/solution.py">[python]</a>
+   <a href="python/28-implement-strstr/solution_simple.py">[python (simple)]</a>
+</summary>
+<br />
+
+Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
+
+Return the index of the first occurrence of needle in haystack, or `-1` if `needle` is not part of `haystack`.
+
+**Clarification:**
+
+What should we return when `needle` is an empty string? This is a great question to ask during an interview.
+
+For the purpose of this problem, we will return 0 when `needle` is an empty string. This is consistent to C's [strstr()](http://www.cplusplus.com/reference/cstring/strstr/) and Java's [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)).
+
+**Example 1:**
+
+<pre>**Input:** haystack = "hello", needle = "ll"
+**Output:** 2
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** haystack = "aaaaa", needle = "bba"
+**Output:** -1
+</pre>
+
+**Example 3:**
+
+<pre>**Input:** haystack = "", needle = ""
+**Output:** 0
+</pre>
+
+**Constraints:**
+
+*   `0 <= haystack.length, needle.length <= 5 * 10<sup>4</sup>`
+*   `haystack` and `needle` consist of only lower-case English characters.
+
+**Note:** In general this problem should be solved by using the 
+[Boyer–Moore–Horspool algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore%E2%80%93Horspool_algorithm).
+
+### Solution 1 (custom algorithm)
+1. Returning `0` if `needle` is empty.
+2. Iterating through `haystack`.
+3. For each symbol in `haystack` we're looping through `needle`.
+4. If `needle` loop finished successfully (using additional flag `search_broken`
+   ), returning index of `haystack` symbol.
+5. Otherwise, if we find that relative `haystack` symbol differs from `needle` 
+   symbol, then:
+    - if before that moment we had only the same repeating symbols, then we 
+      don't need to loop throught the whole `needle` again. It will be enough 
+      just to restart search from current `needle index`.
+    - if before that moment we had different symbols in `haystack`, then we need 
+      to start the search in `needle` from the beginning (`0`).
+6. Returning `-1` if haven't found anything.
+
+### Solution 2 (simple reusing of built-in function)
+```python
+return haystack.find(needle) if needle else 0
+```
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 54. Spiral Matrix
 ------------------------------------------------------------------------------>
 <details>
