@@ -9,11 +9,9 @@ class Solution:
 
     h_len = len(haystack)
     n_len = len(needle)
-    h_idx = 0
     n_search_start = 0
 
-    while h_idx < h_len:
-
+    for h_idx in range(h_len):
       # If haven't found match till that time, there is no sense to proceed.
       if h_idx + n_len > h_len:
         return -1 
@@ -38,8 +36,6 @@ class Solution:
 
       if not search_broken:
         return h_idx
-
-      h_idx += 1
 
     return -1
 
