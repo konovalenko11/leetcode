@@ -7,8 +7,50 @@
 <details>
 <summary><b>14. Longest Common Prefix</b>
    <a href="python/28-implement-strstr/solution.py">[python]</a>
+   <a href="python/28-implement-strstr/solution_v2.py">[python v2]</a>
 </summary>
 <br />
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string `""`.
+
+**Example 1:**
+
+<pre>**Input:** strs = ["flower","flow","flight"]
+**Output:** "fl"
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** strs = ["dog","racecar","car"]
+**Output:** ""
+**Explanation:** There is no common prefix among the input strings.
+</pre>
+
+**Constraints:**
+
+*   `1 <= strs.length <= 200`
+*   `0 <= strs[i].length <= 200`
+*   `strs[i]` consists of only lower-case English letters.
+
+### Solution 1 (word by word)
+1. Taking the `strs[0]` (first element) as an initial `prefix`
+2. Iterating through all words starting from `strs[1]`
+3. Iterating through `prefix` letters and comparing with letters in `strs[1]` (example)
+4. If we find the letter that differs, shrinking our `prefix = prefix[:i]`
+   and continuing to the next element in `strs`.
+5. If after some iteration we find that `prefix` is empty, breaking the outer 
+   loop and returning empty string.
+
+### Solution 2 (column by column)
+1. Taking the `strs[0]` (first element) as starting string
+2. Iterating through all letters in `strs[0]`
+3. Iterating through all strings in `strs[1:]` and checking if current letter 
+   from `strs[0]` is NOT equal to the same letter in other words or we find 
+   shorter word.
+   If we haven't found issues, adding to letter to `prefix`.
+4. Otherwise, returning `prefix`
 
 </details>
 
