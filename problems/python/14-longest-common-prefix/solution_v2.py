@@ -3,18 +3,15 @@ from typing import List
 
 class Solution:
   def longestCommonPrefix(self, strs: List[str]) -> str:
-    prefix = []
     first_word = strs[0]
 
     for i in range(len(first_word)):
       letter = first_word[i]
       for s in strs[1:]:
         if i >= len(s) or letter != s[i]:
-          return ''.join(prefix)
-      
-      prefix.append(letter)
+          return first_word[:i]
 
-    return ''.join(prefix)
+    return first_word
 
 f = Solution()
 
