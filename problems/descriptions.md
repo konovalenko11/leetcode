@@ -6,8 +6,8 @@
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>14. Longest Common Prefix</b>
-   <a href="python/28-implement-strstr/solution.py">[python]</a>
-   <a href="python/28-implement-strstr/solution_v2.py">[python v2]</a>
+   <a href="python/14-longest-common-prefix/solution.py">[python]</a>
+   <a href="python/14-longest-common-prefix/solution_v2.py">[python v2]</a>
 </summary>
 <br />
 
