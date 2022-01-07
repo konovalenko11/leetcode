@@ -473,6 +473,53 @@ Given an `m x n` matrix `mat`, return _an array of all the elements of the array
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 561. Array Partition I 
+------------------------------------------------------------------------------>
+<details>
+<summary><b>561. Array Partition I</b>
+<a href="python/561-array-partition-i/solution.py">[python]</a>
+</summary>
+<br />
+
+Given an integer array `nums` of `2n` integers, group these integers into `n` pairs `(a<sub>1</sub>, b<sub>1</sub>), (a<sub>2</sub>, b<sub>2</sub>), ..., (a<sub>n</sub>, b<sub>n</sub>)` such that the sum of `min(a<sub>i</sub>, b<sub>i</sub>)` for all `i` is **maximized**. Return _the maximized sum_.
+
+**Example 1:**
+
+<pre>**Input:** nums = [1,4,3,2]
+**Output:** 4
+**Explanation:** All possible pairings (ignoring the ordering of elements) are:
+1\. (1, 4), (2, 3) -> min(1, 4) + min(2, 3) = 1 + 2 = 3
+2\. (1, 3), (2, 4) -> min(1, 3) + min(2, 4) = 1 + 2 = 3
+3\. (1, 2), (3, 4) -> min(1, 2) + min(3, 4) = 1 + 3 = 4
+So the maximum possible sum is 4.</pre>
+
+**Example 2:**
+
+<pre>**Input:** nums = [6,2,6,5,1,2]
+**Output:** 9
+**Explanation:** The optimal pairing is (2, 1), (2, 5), (6, 6). min(2, 1) + min(2, 5) + min(6, 6) = 1 + 2 + 6 = 9.
+</pre>
+
+**Constraints:**
+
+*   `1 <= n <= 10<sup>4</sup>`
+*   `nums.length == 2 * n`
+*   `-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>`
+
+### Solution
+To get the biggest sum of pairs, we need to group elements in ascending order by 
+their value. It means that the least valuable elements should be in pair with 
+the least valuable elements. And the most valuable elements with the most 
+valuable: `[1, 4, 6, 2, 3, 5] -> (1, 2), (3, 4), (5, 6)`.
+
+1. Sort input array in ascending order.
+2. Due to that array is sorted, min value will always be the first number in a 
+   pair. So we can just iterate through all elements with even indexes and count 
+   them into sum.
+
+</details>
+     
+<!-----------------------------------------------------------------------------
 -- 724. Find Pivot Index 
 ------------------------------------------------------------------------------>
 <details>
