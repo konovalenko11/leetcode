@@ -1,6 +1,5 @@
 # Problem Descriptions
 
-
 <!-----------------------------------------------------------------------------
 -- 14. Longest Common Prefix
 ------------------------------------------------------------------------------>
@@ -337,6 +336,46 @@ In **Pascal's triangle**, each number is the sum of the two numbers directly abo
 4. Middle elements are sum of elements on previous row:
    ```python
    list[row][idx] = list[row - 1][idx - 1] + list[row - 1][idx]
+   ```
+
+</details>
+
+<!-----------------------------------------------------------------------------
+-- 344. Reverse String
+------------------------------------------------------------------------------>
+<details>
+<summary><b>344. Reverse String</b>
+   <a href="python/344-reverse-string/solution.py">[python]</a>
+</summary>
+<br />
+
+Write a function that reverses a string. The input string is given as an array of characters `s`.
+You must do this by modifying the input array [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) with `O(1)` extra memory.
+
+**Example 1:**
+
+<pre>**Input:** s = ["h","e","l","l","o"]
+**Output:** ["o","l","l","e","h"]
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** s = ["H","a","n","n","a","h"]
+**Output:** ["h","a","n","n","a","H"]
+</pre>
+
+**Constraints:**
+
+*   `1 <= s.length <= 10<sup>5</sup>`
+*   `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
+
+### Solution
+1. Creating two pointers (`i = 0`, `j = len(s) - 1`) that guide us to the 
+   beginning and to the end of the array.
+2. Iterating while `i < j` (they will meet in the middle).
+3. Swappoing the values:
+   ```python
+   s[i], s[j] = s[j], s[i]
    ```
 
 </details>
