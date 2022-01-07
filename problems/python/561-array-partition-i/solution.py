@@ -1,4 +1,5 @@
 from typing import List
+import dis
 
 class Solution:
   def arrayPairSum(self, nums: List[int]) -> int:
@@ -20,3 +21,5 @@ print(f'Answer: {f.arrayPairSum(nums)}')
 nums = [6,2,6,5,1,2]
 print(f'Input: {nums}')
 print(f'Answer: {f.arrayPairSum(nums)}')
+
+# dis.dis(f.arrayPairSum)
