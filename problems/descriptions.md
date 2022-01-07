@@ -341,6 +341,66 @@ In **Pascal's triangle**, each number is the sum of the two numbers directly abo
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 167. Two Sum II - Input array is sorted
+------------------------------------------------------------------------------>
+<details>
+<summary><b>167. Two Sum II - Input array is sorted</b>
+<a href="python/167-two-sum-ii-input-array-is-sorted/solution.py">[python]</a>
+</summary>
+<br />
+
+Given a **1-indexed** array of integers `numbers` that is already **_sorted in non-decreasing order_**, find two numbers such that they add up to a specific `target` number. Let these two numbers be `numbers[index<sub>1</sub>]` and `numbers[index<sub>2</sub>]` where `1 <= index<sub>1</sub> < index<sub>2</sub> <= numbers.length`.
+
+Return _the indices of the two numbers,_ `index<sub>1</sub>` _and_ `index<sub>2</sub>`_, **added by one** as an integer array_ `[index<sub>1</sub>, index<sub>2</sub>]` _of length 2._
+
+The tests are generated such that there is **exactly one solution**. You **may not** use the same element twice.
+
+**Example 1:**
+
+<pre>**Input:** numbers = [<u>2</u>,<u>7</u>,11,15], target = 9
+**Output:** [1,2]
+**Explanation:** The sum of 2 and 7 is 9\. Therefore, index<sub>1</sub> = 1, index<sub>2</sub> = 2\. We return [1, 2].
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** numbers = [<u>2</u>,3,<u>4</u>], target = 6
+**Output:** [1,3]
+**Explanation:** The sum of 2 and 4 is 6\. Therefore index<sub>1</sub> = 1, index<sub>2</sub> = 3\. We return [1, 3].
+</pre>
+
+**Example 3:**
+
+<pre>**Input:** numbers = [<u>-1</u>,<u>0</u>], target = -1
+**Output:** [1,2]
+**Explanation:** The sum of -1 and 0 is -1\. Therefore index<sub>1</sub> = 1, index<sub>2</sub> = 2\. We return [1, 2].
+</pre>
+
+**Constraints:**
+
+*   `2 <= numbers.length <= 3 * 10<sup>4</sup>`
+*   `-1000 <= numbers[i] <= 1000`
+*   `numbers` is sorted in **non-decreasing order**.
+*   `-1000 <= target <= 1000`
+*   The tests are generated such that there is **exactly one solution**.
+
+### Solution (two pointers)
+1. Creating two pointers: one refers to the beginning of list, other one to the 
+   end: `i = 0`, `j = len(numbers) - 1`
+2. Loop through each element
+3. If sum of `numbers[i]` and `numbers[j]` equals to target, then returning 
+   indexes (with +1).
+4. If more than `target`, moving right side to the left: `j -= 1`
+5. Otherwise, moving left side to the right: 'i += 1' until we find the answer.
+
+### Solution (binary search)
+1. Creating two pointers: one refers to the beginning of list, other one to the 
+   end: `i = 0`, `j = len(numbers) - 1`
+
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 344. Reverse String
 ------------------------------------------------------------------------------>
 <details>
