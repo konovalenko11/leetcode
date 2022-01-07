@@ -397,7 +397,6 @@ The tests are generated such that there is **exactly one solution**. You **may n
 1. Creating two pointers: one refers to the beginning of list, other one to the 
    end: `i = 0`, `j = len(numbers) - 1`
 
-
 </details>
 
 <!-----------------------------------------------------------------------------
