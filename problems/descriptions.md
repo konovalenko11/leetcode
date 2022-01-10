@@ -127,6 +127,15 @@ It does not matter what you leave beyond the returned k (hence they are undersco
    In parallel, incrementing the `unique_numbers` counter.
 4. Returning `unique_numbers` counter.
 
+### Solution 2 (list)
+1. Iterating through elements and registering **last unique number idx**.
+2. If `nums[i] != nums[last_num_idx]`, then incrementing `last_num_idx` and 
+   assigning the current number to the new `last_num_idx` (the next position).
+3. Returning `last_num_idx + 1`
+
+Note: It doesn't matter what goes after the list of unique numbers. The main 
+point to have first `n` elements be filled with requested unique numbers.
+
 </details>
 
 <!-----------------------------------------------------------------------------
