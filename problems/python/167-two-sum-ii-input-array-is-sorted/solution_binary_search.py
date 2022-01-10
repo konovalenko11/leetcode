@@ -1,13 +1,8 @@
 from typing import Counter, List
 import dis
 
-counter = 0
-
 def _adjust_boundary(etalon, start, stop, array, target):
   while (start < stop):
-    global counter
-    counter += 1
-
     mid = (start + stop) // 2
     sum = etalon + array[mid]
 
@@ -29,7 +24,6 @@ class Solution:
       sum_left_right = numbers[left] + numbers[right]
 
       if sum_left_right == target:
-        print(f'Counter: [{counter}]')
         return [left + 1, right + 1]
       elif sum_left_right > target:
         right = _adjust_boundary(numbers[left], left, right - 1, numbers, 
@@ -37,7 +31,6 @@ class Solution:
       else:
         left = _adjust_boundary(numbers[right], left + 1, right, numbers, 
                                 target)
-    print(f'Counter: [{counter}]')
     return [1, 2]
 
 f = Solution()
