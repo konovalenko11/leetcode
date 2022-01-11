@@ -613,6 +613,44 @@ You must do this by modifying the input array [in-place](https://en.wikipedia.or
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 485. Max Consecutive Ones
+------------------------------------------------------------------------------>
+<details>
+<summary><b>485. Max Consecutive Ones</b>
+   <a href="python/485-max-consecutive-ones/solution.py">[python]</a>
+</summary>
+<br />
+
+Given a binary array `nums`, return _the maximum number of consecutive_ `1`_'s in the array_.
+
+**Example 1:**
+
+<pre>**Input:** nums = [1,1,0,1,1,1]
+**Output:** 3
+**Explanation:** The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** nums = [1,0,1,1,0,1]
+**Output:** 2
+</pre>
+
+**Constraints:**
+
+*   `1 <= nums.length <= 10<sup>5</sup>`
+*   `nums[i]` is either `0` or `1`.
+
+### [Solution](python/485-max-consecutive-ones/solution.py)
+1. Creating two counters `max_reps`, `curr_reps`.
+2. Iterating through elements.
+3. Incrementing `curr_reps` if we encounter `1`, otherwise, assigning to 
+   `max_reps` max of valiues `max(max_reps, curr_reps)`
+4. Returning `max(max_reps, curr_reps)`
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 498. Diagonal Traverse
 ------------------------------------------------------------------------------>
 <details>
