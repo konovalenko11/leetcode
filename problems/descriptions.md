@@ -74,7 +74,8 @@ Do **not** allocate extra space for another array. You must do this by **modifyi
 
 The judge will test your solution with the following code:
 
-<pre>int[] nums = [...]; // Input array
+```java
+int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
 
 int k = removeDuplicates(nums); // Calls your implementation
@@ -83,7 +84,7 @@ assert k == expectedNums.length;
 for (int i = 0; i < k; i++) {
     assert nums[i] == expectedNums[i];
 }
-</pre>
+```
 
 If all assertions pass, then your solution will be **accepted**.
 
@@ -158,7 +159,8 @@ Do **not** allocate extra space for another array. You must do this by **modifyi
 
 The judge will test your solution with the following code:
 
-<pre>int[] nums = [...]; // Input array
+```java
+int[] nums = [...]; // Input array
 int val = ...; // Value to remove
 int[] expectedNums = [...]; // The expected answer with correct length.
                             // It is sorted with no values equaling val.
@@ -170,7 +172,7 @@ sort(nums, 0, k); // Sort the first k elements of nums
 for (int i = 0; i < actualLength; i++) {
     assert nums[i] == expectedNums[i];
 }
-</pre>
+```
 
 If all assertions pass, then your solution will be **accepted**.
 
