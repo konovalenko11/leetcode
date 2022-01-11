@@ -62,7 +62,7 @@ numbers = [12, 13, 23, 28, 43, 44, 59, 60, 61, 68, 70, 86, 88, 92, 124, 125, 136
            583, 585, 587, 650, 652, 677, 691, 730, 737, 740, 751, 755, 764, 778, 783, 785, 789, 794, 803, 809,
            815, 847, 858, 863, 863, 874, 887, 896, 916, 920, 926, 927, 930, 933, 957, 981, 997]
 target = 542
-print(f'Input: numbers = {numbers}, target = {target}')
+print(f'Input: numbers = {numbers}, target = {target}, len = {len(numbers)}')
 print(f'Answer: {f.twoSum(numbers, target)}')
 
 
