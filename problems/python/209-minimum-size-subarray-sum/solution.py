@@ -5,14 +5,14 @@ class Solution:
   def minSubArrayLen(self, target: int, nums: List[int]) -> int:
     start = 0
     end = 0
-    ilength = 1
-    isum = nums[0]
+    ilength = 0
+    isum = 0
     # Choosing impossible value to have easier min comparison and to identify at 
     # the end if we haven't found any satisfying intervals.
     min_length = len(nums) + 1
 
-    for end, num in enumerate(nums):
-      isum += num
+    while end < len(nums):
+      isum += nums[end]
       ilength += 1
 
       while isum >= target:
@@ -26,7 +26,11 @@ class Solution:
         start += 1
         ilength -= 1
 
+        print(f'interval[{start},{end}]; len[{ilength}]; sum[{isum}]')
+
       print(f'interval[{start},{end}]; len[{ilength}]; sum[{isum}]')
+
+      end += 1
 
     if min_length == len(nums) + 1:
       min_length = 0
