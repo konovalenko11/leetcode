@@ -573,6 +573,55 @@ The tests are generated such that there is **exactly one solution**. You **may n
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 209. Minimum Size Subarray Sum
+------------------------------------------------------------------------------>
+<details>
+<summary><b>344. Reverse String</b>
+   <a href="python/209-minimum-size-subarray-sum/solution.py">[python]</a>
+</summary>
+<br />
+
+Given an array of positive integers `nums` and a positive integer `target`, return the minimal length of a **contiguous subarray** `[nums<sub>l</sub>, nums<sub>l+1</sub>, ..., nums<sub>r-1</sub>, nums<sub>r</sub>]` of which the sum is greater than or equal to `target`. If there is no such subarray, return `0` instead.
+
+**Example 1:**
+
+<pre>**Input:** target = 7, nums = [2,3,1,2,4,3]
+**Output:** 2
+**Explanation:** The subarray [4,3] has the minimal length under the problem constraint.
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** target = 4, nums = [1,4,4]
+**Output:** 1
+</pre>
+
+**Example 3:**
+
+<pre>**Input:** target = 11, nums = [1,1,1,1,1,1,1,1]
+**Output:** 0
+</pre>
+
+**Constraints:**
+
+*   `1 <= target <= 10<sup>9</sup>`
+*   `1 <= nums.length <= 10<sup>5</sup>`
+*   `1 <= nums[i] <= 10<sup>5</sup>`
+
+**Follow up:** If you have figured out the `O(n)` solution, try coding another solution of which the time complexity is `O(n log(n))`.
+
+### [Solution (two pointers)](python/209-minimum-size-subarray-sum/solution.py)
+Idea is to create two pointers that will track the beginning and the end of the 
+window for which we calculate the sum of elements. If `sum < target` it means 
+that we need to increase window (expand `end`). Otherwise, if we reached the 
+target, we need to log the current window length, compare with current min 
+window length, and shrink the window (move `start` to the left.)
+
+Iterating till the moment when we reach the end: `end == len(nums)`.
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 344. Reverse String
 ------------------------------------------------------------------------------>
 <details>
