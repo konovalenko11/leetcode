@@ -1,12 +1,23 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google Sans">
+
+<style>
+   summary {
+      font-family: "Google Sans";
+   }
+   .easy {
+      background-color: green;
+   }
+</style>
+
 # Problem Descriptions
 
 <!-----------------------------------------------------------------------------
 -- 14. Longest Common Prefix
 ------------------------------------------------------------------------------>
 <details>
-<summary><b>14. Longest Common Prefix</b>
-   <a href="python/14-longest-common-prefix/solution.py">[python]</a>
-   <a href="python/14-longest-common-prefix/solution_v2.py">[python v2]</a>
+<summary><b class = "easy">14. Longest Common Prefix</b>
+   <a href="//problems/python/14-longest-common-prefix/solution.py">[python]</a>
+   <a href="//problems/python/14-longest-common-prefix/solution_v2.py">[python v2]</a>
 </summary>
 <br />
 
@@ -142,8 +153,8 @@ point to have first `n` elements be filled with requested unique numbers.
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>27. Remove Element</b>
-   <a href="python/27-remove-element/solution_list.py">[python]</a>
-   <a href="python/27-remove-element/solution_list_2.py">[python (optimized)]</a>
+   <a href="//problems/python/27-remove-element/solution_list.py">[python]</a>
+   <a href="//problems/python/27-remove-element/solution_list_2.py">[python (optimized)]</a>
 </summary>
 <br />
 
@@ -199,7 +210,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 *   `0 <= nums[i] <= 50`
 *   `0 <= val <= 100`
 
-### [Solution 1 (moving correct nums)](python/27-remove-element/solution_list.py)
+### [Solution 1 (moving correct nums)](//problems/python/27-remove-element/solution_list.py)
 1. Setting up pointer to the last correct number.
 2. Iterating through the elements in `nums`.
 3. If we find correct number, assigning and incrementing the value of 
@@ -210,7 +221,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
    ```
 4. Returning `last_correct_number`.
 
-### [Solution 2 (moving invalid nums)](python/27-remove-element/solution_list_2.py)
+### [Solution 2 (moving invalid nums)](//problems/python/27-remove-element/solution_list_2.py)
 This algorithm might be more efficient if invalid number is rare.
 
 1. Setting up forward and back pointers:
@@ -231,8 +242,8 @@ This algorithm might be more efficient if invalid number is rare.
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>28. Implement strStr()</b>
-   <a href="python/28-implement-strstr/solution.py">[python]</a>
-   <a href="python/28-implement-strstr/solution_simple.py">[python (simple)]</a>
+   <a href="//problems/python/28-implement-strstr/solution.py">[python]</a>
+   <a href="//problems/python/28-implement-strstr/solution_simple.py">[python (simple)]</a>
 </summary>
 <br />
 
@@ -299,8 +310,8 @@ return haystack.find(needle) if needle else 0
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>54. Spiral Matrix</b>
-<a href="python/54-spiral-matrix/main.py">[python]</a>
-<a href="python/54-spiral-matrix/main_v2_visited.py">[python 2]</a>
+<a href="//problems/python/54-spiral-matrix/main.py">[python]</a>
+<a href="//problems/python/54-spiral-matrix/main_v2_visited.py">[python 2]</a>
 </summary>
 <br />
 
@@ -354,7 +365,7 @@ Given an `m x n` `matrix`, return _all elements of the_ `matrix` _in spiral orde
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>66. Plus One</b>
-<a href="python/66-plus-one/main.py">[python]</a>
+<a href="//problems/python/66-plus-one/main.py">[python]</a>
 </summary>
 <br />
 
@@ -420,7 +431,7 @@ Thus, the result should be [1,0].
 <details>
 <summary>
    <b>67. Add Binary</b>
-   <a href="python/67-add-binary/main.py">[python]</a>
+   <a href="//problems/python/67-add-binary/main.py">[python]</a>
 </summary>
 <br />
 
@@ -476,7 +487,7 @@ Given two binary strings `a` and `b`, return _their sum as a binary string_.
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>118. Pascal's Triangle</b>
-<a href="python/118-pascals-triangle/main.py">[python]</a>
+<a href="//problems/python/118-pascals-triangle/main.py">[python]</a>
 </summary>
 <br />
 
@@ -514,11 +525,57 @@ In **Pascal's triangle**, each number is the sum of the two numbers directly abo
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 121. Best Time to Buy and Sell Stock
+------------------------------------------------------------------------------>
+<details>
+<summary><b class = "easy">121.</b> Best Time to Buy and Sell Stock</b>
+   <a href="//problems/python/121-best-time-to-buy-and-sell-stock/solution.py">[python]</a>
+</summary>
+<br />
+
+[LeetCode Link](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+You are given an array `prices` where `prices[i]` is the price of a given stock on the `i<sup>th</sup>` day.
+
+You want to maximize your profit by choosing a **single day** to buy one stock and choosing a **different day in the future** to sell that stock.
+
+Return _the maximum profit you can achieve from this transaction_. If you cannot achieve any profit, return `0`.
+
+**Example 1:**
+
+<pre>**Input:** prices = [7,1,5,3,6,4]
+**Output:** 5
+**Explanation:** Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** prices = [7,6,4,3,1]
+**Output:** 0
+**Explanation:** In this case, no transactions are done and the max profit = 0.
+</pre>
+
+**Constraints:**
+
+*   `1 <= prices.length <= 10<sup>5</sup>`
+*   `0 <= prices[i] <= 10<sup>4</sup>`
+
+### Solution [[python](//problems/python/121-best-time-to-buy-and-sell-stock/solution.py)]
+1. Create pointers for `min_price` and `profit`. Assigning first element to `min_price`.
+2. Loop through each element
+   1. If the `price` of current element is lower than `min_price` - updating `min_price`.
+   2. If difference between current `price` and `min_price` is more than previously registered `profit` - updating `profit`.
+3. Returning `profit`.
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 167. Two Sum II - Input array is sorted
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>167. Two Sum II - Input array is sorted</b>
-<a href="python/167-two-sum-ii-input-array-is-sorted/solution.py">[python]</a>
+<a href="//problems/python/167-two-sum-ii-input-array-is-sorted/solution.py">[python]</a>
 </summary>
 <br />
 
@@ -577,7 +634,7 @@ The tests are generated such that there is **exactly one solution**. You **may n
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>344. Reverse String</b>
-   <a href="python/209-minimum-size-subarray-sum/solution.py">[python]</a>
+   <a href="//problems/python/209-minimum-size-subarray-sum/solution.py">[python]</a>
 </summary>
 <br />
 
@@ -610,7 +667,7 @@ Given an array of positive integers `nums` and a positive integer `target`, retu
 
 **Follow up:** If you have figured out the `O(n)` solution, try coding another solution of which the time complexity is `O(n log(n))`.
 
-### [Solution (two pointers)](python/209-minimum-size-subarray-sum/solution.py)
+### [Solution (two pointers)](//problems/python/209-minimum-size-subarray-sum/solution.py)
 Idea is to create two pointers that will track the beginning and the end of the 
 window for which we calculate the sum of elements. If `sum < target` it means 
 that we need to increase window (expand `end`). Otherwise, if we reached the 
@@ -626,7 +683,7 @@ Iterating till the moment when we reach the end: `end == len(nums)`.
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>344. Reverse String</b>
-   <a href="python/344-reverse-string/solution.py">[python]</a>
+   <a href="//problems/python/344-reverse-string/solution.py">[python]</a>
 </summary>
 <br />
 
@@ -662,11 +719,78 @@ You must do this by modifying the input array [in-place](https://en.wikipedia.or
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 359. Logger Rate Limiter
+------------------------------------------------------------------------------>
+<details>
+<summary><b class = "easy">359.</b> Logger Rate Limiter</b>
+   <a href="//problems/python/359-logger-rate-limiter/solution_dict.py">[python]</a>
+</summary>
+<br />
+
+[LeetCode Link](https://leetcode.com/problems/logger-rate-limiter/)
+
+Design a logger system that receives a stream of messages along with their timestamps. Each **unique** message should only be printed **at most every 10 seconds** (i.e. a message printed at timestamp `t` will prevent other identical messages from being printed until timestamp `t + 10`).
+
+All messages will come in chronological order. Several messages may arrive at the same timestamp.
+
+Implement the `Logger` class:
+
+*   `Logger()` Initializes the `logger` object.
+*   `bool shouldPrintMessage(int timestamp, string message)` Returns `true` if the `message` should be printed in the given `timestamp`, otherwise returns `false`.
+
+**Example 1:**
+
+```java
+**Input**
+["Logger", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage"]
+[[], [1, "foo"], [2, "bar"], [3, "foo"], [8, "bar"], [10, "foo"], [11, "foo"]]
+**Output**
+[null, true, true, false, false, false, true]
+
+**Explanation**
+Logger logger = new Logger();
+logger.shouldPrintMessage(1, "foo");  // return true, next allowed timestamp for "foo" is 1 + 10 = 11
+logger.shouldPrintMessage(2, "bar");  // return true, next allowed timestamp for "bar" is 2 + 10 = 12
+logger.shouldPrintMessage(3, "foo");  // 3 < 11, return false
+logger.shouldPrintMessage(8, "bar");  // 8 < 12, return false
+logger.shouldPrintMessage(10, "foo"); // 10 < 11, return false
+logger.shouldPrintMessage(11, "foo"); // 11 >= 11, return true, next allowed timestamp for "foo" is 11 + 10 = 21
+```
+
+**Constraints:**
+
+*   `0 <= timestamp <= 10<sup>9</sup>`
+*   Every `timestamp` will be passed in non-decreasing order (chronological order).
+*   `1 <= message.length <= 30`
+*   At most `10<sup>4</sup>` calls will be made to `shouldPrintMessage`.
+
+### Solution (Queue + Set) [[python](//problems/python/359-logger-rate-limiter/solution_queue_set.py)]
+1. Creating class attributes:
+    - `messages` (Set) for logging unique messages.
+    - `queue` (Queue) for logging message queue in chronological order. The last 
+      element of `queue` will contain the "oldest" message.
+2. Removing old messages from `messages` and `queue` by taking the last message 
+   timestamp until we find the message with age that is less than threshold.
+3. If input `message` exists in `messages`, returning `False`.
+4. Adding `message` and `timestamp` to `queue` and `messages`.
+5. Returning `True`
+   
+### Solution (Dict) [[python](//problems/python/359-logger-rate-limiter/solution_dict.py)]
+1. Creating class attributes:
+    - `messages` (Dict) for logging unique messages and tyhe latest timestamp.
+2. If `message` is in `messages` and entry is not too old, then returning `False`.
+3. Otherwise, 
+   1. Adding `messages[message] = timestamp`
+   2. Returning `True`
+
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 485. Max Consecutive Ones
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>485. Max Consecutive Ones</b>
-   <a href="python/485-max-consecutive-ones/solution.py">[python]</a>
+   <a href="//problems/python/485-max-consecutive-ones/solution.py">[python]</a>
 </summary>
 <br />
 
@@ -690,7 +814,7 @@ Given a binary array `nums`, return _the maximum number of consecutive_ `1`_'s i
 *   `1 <= nums.length <= 10<sup>5</sup>`
 *   `nums[i]` is either `0` or `1`.
 
-### [Solution](python/485-max-consecutive-ones/solution.py)
+### [Solution](//problems/python/485-max-consecutive-ones/solution.py)
 1. Creating two counters `max_reps`, `curr_reps`.
 2. Iterating through elements.
 3. Incrementing `curr_reps` if we encounter `1`, otherwise, assigning to 
@@ -704,7 +828,7 @@ Given a binary array `nums`, return _the maximum number of consecutive_ `1`_'s i
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>498. Diagonal Traverse</b>
-<a href="python/66-plus-one/main.py">[python]</a>
+<a href="//problems/python/66-plus-one/main.py">[python]</a>
 </summary>
 <br/>
 
@@ -796,7 +920,7 @@ Given an `m x n` matrix `mat`, return _an array of all the elements of the array
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>561. Array Partition I</b>
-<a href="python/561-array-partition-i/solution.py">[python]</a>
+<a href="//problems/python/561-array-partition-i/solution.py">[python]</a>
 </summary>
 <br />
 
@@ -843,7 +967,7 @@ valuable: `[1, 4, 6, 2, 3, 5] -> (1, 2), (3, 4), (5, 6)`.
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>724. Find Pivot Index</b>
-<a href="python/724-find-pivot-index/main.py">[python]</a>
+<a href="//problems/python/724-find-pivot-index/main.py">[python]</a>
 </summary>
 <br />
 
@@ -903,7 +1027,7 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>747. Largest Number At Least Twice of Others</b>
-<a href="python/747-largest-number-at-least-twice-of-others/main.py">[python]</a>
+<a href="//problems/python/747-largest-number-at-least-twice-of-others/main.py">[python]</a>
 </summary>
 <br />
 
@@ -951,13 +1075,73 @@ The index of value 6 is 1, so we return 1.
 
 </details>  
 
+<!-----------------------------------------------------------------------------
+-- 977. Squares of a Sorted Array
+------------------------------------------------------------------------------>
+<details>
+<summary><b class = "easy">977.</b> Squares of a Sorted Array</b>
+   <a href="//problems/python/977-squares-of-a-sorted-array/solution_two_pointers.py">[python]</a>
+</summary>
+<br />
+
+[LeetCode Link](https://leetcode.com/problems/squares-of-a-sorted-array/)
+
+Given an integer array `nums` sorted in **non-decreasing** order, return _an array of **the squares of each number** sorted in non-decreasing order_.
+
+**Example 1:**
+
+<pre>**Input:** nums = [-4,-1,0,3,10]
+**Output:** [0,1,9,16,100]
+**Explanation:** After squaring, the array becomes [16,1,0,9,100].
+After sorting, it becomes [0,1,9,16,100].
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** nums = [-7,-3,2,3,11]
+**Output:** [4,9,9,49,121]
+</pre>
+
+**Constraints:**
+
+*   `<span>1 <= nums.length <=</span> 10<sup>4</sup>`
+*   `-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>`
+*   `nums` is sorted in **non-decreasing** order.
+
+**Follow up:** Squaring each element and sorting the new array is very trivial, could you find an `O(n)` solution using a different approach?
+
+### Solution (Brute Force) [[python](//problems/python/977-squares-of-a-sorted-array/solution_brute_force.py)]
+Idea is that we're moving from the beginning of the array and adding all negative numbers into array.
+During processing of the positive numbers we are checking if current positive 
+number is greater than the last added negative (if tehre are any negative numbers).
+If there are, then firstly adding to result array quads from negative list and 
+then adding quad of positive.
+
+At the end, if we still have negative numbers in array, we're adding them to the 
+end of result array.
+
+### Solution (Two Pointers) [[python](//problems/python/977-squares-of-a-sorted-array/solution_two_pointers.py)]
+1. Creating few variables:
+    - `squares` (Queue) for keeping result squares and having the possibility to add values to the beginng of the array.
+    - `left` and `right` pointers to the `0` and last element respectively.
+2. While `left < right` iterating through the elements:
+   1. If `abs(nums[right]) > abs(nums[left])` then adding `nums[right]**2` to 
+      `squares` and shifting `right` to the left.
+   2. Otherwise, adding `nums[left]**2` to `squares` and shifting `left` to the 
+      right.
+3. At the end, if we have one element left (`left == right`), adding it as well: 
+   `squares.appendleft(nums[left]**2)`
+4. Returning result array: `list(squares)`
+
+</details>
+
 
 <!-----------------------------------------------------------------------------
 -- 1991. Find the Middle Index in Array
 ------------------------------------------------------------------------------>
 <details>
 <summary><b>1991. Find the Middle Index in Array</b>
-<a href="python/1991-find-the-middle-index-in-array/main.py">[python]</a>
+   <a href="//problems/python/1991-find-the-middle-index-in-array/main.py">[python]</a>
 </summary>
 <br />
 
