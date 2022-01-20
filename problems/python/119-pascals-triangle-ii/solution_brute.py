@@ -13,7 +13,7 @@ class Solution:
         else:
           triangle[r].append(triangle[r-1][i-1] + triangle[r-1][i])
 
-      print(f'[{r}]; triangle: {triangle}')
+      # print(f'[{r}]; triangle: {triangle}')
           
     return triangle[-1]
 
@@ -21,7 +21,7 @@ f = Solution()
 
 inputs = [ 
   {
-    'rowIndex': 3
+    'rowIndex': 300
   }
 ]
 
