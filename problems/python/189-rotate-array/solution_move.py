@@ -3,12 +3,18 @@ from typing import List
 
 class Solution:
   def rotate(self, nums: List[int], k: int) -> None:
+    n = len(nums)
+
+    # This will decrease the number of steps if it is higher than number of 
+    # elements.
+    k %= n
+
     anchor = 0
     content = 0
-    moved = 0
 
-    while moved < len(nums) - 1:
-      content = (content + k + len(nums)) % len(nums)
+    for moved in range(n - 1):
+      # This will properly calculate the new position, even if k < 0.
+      content = (content + k + n) % n
 
       # If step is proportional to the length of the input array, we will 
       # eventually return to the anchor. In order to proceed with other numbers, 
@@ -20,7 +26,6 @@ class Solution:
         # Swapping two numbers.
         nums[anchor], nums[content] = nums[content], nums[anchor]
 
-      moved += 1
       print(f'[{moved}]: [{anchor}] <=> [{content}]: {nums}; ')
 
 f = Solution()
