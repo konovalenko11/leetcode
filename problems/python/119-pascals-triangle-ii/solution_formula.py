@@ -19,7 +19,7 @@ f = Solution()
 
 inputs = [ 
   {
-    'rowIndex': 300
+    'rowIndex': 3
   }
 ]
 

@@ -565,6 +565,42 @@ In **Pascal's triangle**, each number is the sum of the two numbers directly abo
 
 **Follow up:** Could you optimize your algorithm to use only `O(rowIndex)` extra space?
 
+### Solution 1 (Brute Force).
+1. Generating all rows up to the row we are looking for.
+2. Returning the last row.
+
+### Solution 2 (Math)
+There is a formula that can be used to calculate any element in the Pascal's 
+triangle (except first and last, they are `1`).
+
+```
+n! / (k! * (n - k)!)
+```
+
+If to take this formula into consideration, we can find the coefficient of 
+dependency between previous and current element. This can simplify the formula 
+and avoid calculations of factorials.
+
+```
+n! / (k! * (n - k)!)
+--- divide to ----------------------  => (n - k + 1) / k
+n! / ((k-1)! * (n - (k-1))!)
+```
+
+Using this formula we can derive the current n-row value (k) using the previous 
+value (k-1).
+
+```
+n(k) = n(k-1) * ((n - k + 1) / k)
+```
+
+Or something like that, where `i`
+is the index of element in row, and `rowIndex` indicates row:
+
+```python
+result[i-1] * (rowIndex - i + 1) // i
+```
+
 </details>
 
 <!-----------------------------------------------------------------------------
