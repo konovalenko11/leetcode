@@ -1,13 +1,10 @@
 import dis
 from typing import List
-from collections import deque
 
 class Solution:
   def reverseWords(self, s: str) -> str:
     # Emulating immutability
     s = list(s)
-
-    if 
 
 
 
