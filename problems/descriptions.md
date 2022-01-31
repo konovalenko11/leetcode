@@ -995,8 +995,28 @@ latter to initiate recursive processing from the beginning.
    4. Else (if we found just string character), we're adding it to our 
       `characters` list.
 2. Returning `(''.join(characters), i+1)`.
-   
-</details>
+
+### [Solution (stack)](python/394-decode-string/solution_stack.py)
+1. Defining:
+   ```python
+   result_string = [] # will contain final string.
+   repeat = 0 # number of repeats for the substring.
+   stack = [] # stack of the entries.
+   ```
+2. Iterating through characters `c` in `s`:
+   1. `c.isdigit()`: calculating number of repeats. If there are few consequtive 
+       digits in `s` we can do: `repeat = repeat * 10 + int(c)`
+   2. `c == '['`: it means we will have one more level, so need to add into a 
+      stack number of repeats + current `result_string` for this new entry and 
+      resetting the `repeat` and `result_string`.
+   3. `c == ']'`: closing entry. We need to take from the stack the number of 
+      repetiotions and previous string. Concatenating it with current 
+      `result_string`: 
+      ```python
+      result_string = [last_value + repetitions * ''.join(result_string)]
+      ```
+   4. Else (when `c` is char). Appending to `result_string`.
+3. Returning `result_string` as `''.join(result_string)`.
 
 <!-----------------------------------------------------------------------------
 -- 485. Max Consecutive Ones
