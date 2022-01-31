@@ -1,35 +1,33 @@
 import dis
-from typing import List, Any, Tuple
-
-def _parseExpression(s: str, cursor: int) -> Tuple:
-  repeat_digits = []
-  characters = []
-  i = cursor
-
-  while (i < len(s)):
-    if s[i].isdigit():
-      repeat_digits.append(s[i])
-      i += 1
-      continue
-
-    if s[i] == '[':
-      repeat = int(''.join(repeat_digits)) if repeat_digits else 1
-      repeat_digits = []
-      substr, i = _parseExpression(s, i+1)
-      characters.append(substr * repeat)
-      continue
-    elif s[i] == ']':
-      return (''.join(characters), i+1)
-    else:
-      characters.append(s[i])
-
-    i += 1
-    
-  return (''.join(characters), i+1)
     
 class Solution:
+  def __init__(self) -> None:
+    self.cursor = 0
+
   def decodeString(self, s: str) -> str:
-    return _parseExpression(s, 0)[0]
+    repeat = 0
+    characters = []
+
+    while (self.cursor < len(s)):
+      if s[self.cursor].isdigit():
+        repeat = repeat * 10 + int(s[self.cursor])
+      elif s[self.cursor] == '[':
+        self.cursor += 1
+        substr = self.decodeString(s)
+        characters.append(substr * repeat)
+        repeat = 0
+        continue
+      elif s[self.cursor] == ']':
+        self.cursor += 1
+        return ''.join(characters)
+      else:
+        characters.append(s[self.cursor])
+
+      self.cursor += 1
+
+    self.cursor += 1
+      
+    return ''.join(characters)
 
 f = Solution()
 
@@ -47,4 +45,5 @@ inputs = [
 
 for input in inputs:
   print(f'Input: {input}')
+  f.cursor = 0
   print(f'Answer: {f.decodeString(**input)}')
