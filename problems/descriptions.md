@@ -925,6 +925,80 @@ logger.shouldPrintMessage(11, "foo"); // 11 >= 11, return true, next allowed tim
 </details>
 
 <!-----------------------------------------------------------------------------
+-- 394. Decode String
+------------------------------------------------------------------------------>
+<details>
+<summary><b>394. Decode String (M)</b>
+   <a href="python/394-decode-string/solution_recursive.py">[python]</a>
+</summary>
+<br />
+
+[LeetCode Link](https://leetcode.com/problems/decode-string/)
+
+Given an encoded string, return its decoded string.
+
+The encoding rule is: `k[encoded_string]`, where the `encoded_string` inside the square brackets is being repeated exactly `k` times. Note that `k` is guaranteed to be a positive integer.
+
+You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc.
+
+Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, `k`. For example, there will not be input like `3a` or `2[4]`.
+
+**Example 1:**
+
+<pre>**Input:** s = "3[a]2[bc]"
+**Output:** "aaabcbc"
+</pre>
+
+**Example 2:**
+
+<pre>**Input:** s = "3[a2[c]]"
+**Output:** "accaccacc"
+</pre>
+
+**Example 3:**
+
+<pre>**Input:** s = "2[abc]3[cd]ef"
+**Output:** "abcabccdcdcdef"
+</pre>
+
+**Constraints:**
+
+*   `1 <= s.length <= 30`
+*   `s` consists of lowercase English letters, digits, and square brackets `'[]'`.
+*   `s` is guaranteed to be **a valid** input.
+*   All the integers in `s` are in the range `[1, 300]`.
+
+### [Solution (recursive)](python/394-decode-string/solution_recursive.py)
+We will have main function `decodeString(self, s: str) -> str` and recursive 
+`_parseExpression(s: str, cursor: int) -> Tuple`. The former will call the 
+latter to initiate recursive processing from the beginning.
+
+```python
+  def decodeString(self, s: str) -> str:
+    return _parseExpression(s, 0)[0]
+```
+
+1. Iterating through the input string `s` in scope of `_parseExpression`:
+   0. Initializing the list of substrings `characters`.
+   1. If symbol is digit, then building the number of repetiotions by adding to 
+      the `s[i]` into the `repeat_digits` or by calculating `repeat` number 
+      right away as: 
+      ```python
+      repeat = repeat * 10 + int(s[i])
+      ```
+   2. If `s[i] == '['`, it means we're entering the inner substring, ao we need 
+      to repeat the inner substring `repeat` times. To identify inner substring, 
+      we need to call recursive function `_parseExpression` with index `i + 1`.
+      After it, appending the result to `characters`.
+   3. If `s[i] == ']'`, it means that we already had processed the inner string, 
+      so we need just combine all of the sunstrings.
+   4. Else (if we found just string character), we're adding it to our 
+      `characters` list.
+2. Returning `(''.join(characters), i+1)`.
+   
+</details>
+
+<!-----------------------------------------------------------------------------
 -- 485. Max Consecutive Ones
 ------------------------------------------------------------------------------>
 <details>
