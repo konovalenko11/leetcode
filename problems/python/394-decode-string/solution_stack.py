@@ -2,7 +2,7 @@ import dis
     
 class Solution:
   def decodeString(self, s: str) -> str:
-    result_string = ''
+    result_string = []
     repeat = 0
     stack = []
 
@@ -10,16 +10,16 @@ class Solution:
       if c.isdigit():
         repeat = repeat * 10 + int(c)
       elif c == '[':
-        stack.append((repeat, result_string))
+        stack.append((repeat, ''.join(result_string)))
         repeat = 0
-        result_string = ''
+        result_string = []
       elif c == ']':
         repetitions, last_value = stack.pop()
-        result_string = last_value + repetitions * result_string
+        result_string = [last_value + repetitions * ''.join(result_string)]
       else:
-        result_string += c
+        result_string.append(c)
       
-    return result_string
+    return ''.join(result_string)
 
 f = Solution()
 
